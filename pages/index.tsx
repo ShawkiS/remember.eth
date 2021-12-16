@@ -4,17 +4,12 @@ import { createKeys, getPublicKeyEthAddress, sign, verify } from '../services/cr
 import styles from '../styles/Home.module.css'
 import {ethers} from 'ethers';
 import { useState } from 'react'
+import { buf2hex } from '../utils';
 
 const Home: NextPage = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [signturesCount, setSignturesCount] = useState(0);
   const [signtures, setSigntures] = useState<string []>([]);
-
-  function buf2hex(buffer: any) { 
-    return [...new Uint8Array(buffer)]
-        .map(x => x.toString(16).padStart(2, '0'))
-        .join('');
-  }
 
   const rememberMeInBrowser = async () => {
 
